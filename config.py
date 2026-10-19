@@ -3,7 +3,8 @@ from util.notes.notes import notes
 
 config = {
   # violyn settings
-  "Position": 1,
+  "Positions": [1],
+  "Acceptable_point_margin": 15,
 
   # note settings
   "Notes": notes,
@@ -12,7 +13,10 @@ config = {
   # actionable audio settings
   "Min_sound_volume": 0.01,
 
-  # technical audio settings
+  # Technical audio settings
   "SAMPLE_RATE": 44100,
-  "BLOCK_SIZE": 2048
+  "BLOCK_SIZE": 4096,
+
+  "NOTE_LISTEN_DURATION": .1,
+  "NOTE_CORRECT_DURATION": 1.0,
 }
