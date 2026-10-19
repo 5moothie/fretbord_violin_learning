@@ -1,18 +1,14 @@
 from config import config
 from util.notes.noteGenerator import generateNote
+
 import msvcrt
 
+from util.sound.listen_for import listen_for_note
+
 if __name__ == '__main__':
+  
   while(True):
-    print(generateNote())
-    print("Space to continue, q to quit")
+    note = generateNote()
+    print(f"Play {note}", end='\r')
 
-    c = msvcrt.getch().decode('utf-8')
-
-    match c:
-      case " ":
-        continue
-      case "q":
-        break
-      case _:
-        print("Space to continue, q to quit")
+    listen_for_note(note)
