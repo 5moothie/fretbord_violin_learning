@@ -1,4 +1,23 @@
 import numpy as np
+import librosa
+
+
+def get_fundamental_frequency_librosa(samples, sample_rate):
+  # Librosa expects float32 mono signals between -1 and 1
+  signal = librosa.to_mono(samples.T if samples.ndim > 1 else samples)
+  
+  f0, voiced_flag, voiced_probs = librosa.pyin(
+    signal, 
+    fmin=190.0, 
+    fmax=4000.0,
+    sr=sample_rate,
+    frame_length=1024
+  )
+
+  valid_f0 = f0[voiced_flag]
+  if len(valid_f0) == 0:
+    return None
+  return np.median(valid_f0) 
 
 def get_dominant_frequency(samples, sample_rate):
   signal = samples.flatten()

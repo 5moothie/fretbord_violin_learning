@@ -4,7 +4,7 @@ from util.notes.notes import notes
 config = {
   # violyn settings
   "Positions": [1],
-  "Acceptable_point_margin": 15,
+  "Acceptable_point_margin": 25,
 
   # note settings
   "Notes": notes,
@@ -18,5 +18,6 @@ config = {
   "BLOCK_SIZE": 4096,
 
   "NOTE_LISTEN_DURATION": .1,
-  "NOTE_CORRECT_DURATION": 1.0,
+  "NOTE_CORRECT_DURATION": .5,
+  "NOTE_CORRECTNESS_THRESHOLD": .7,
 }

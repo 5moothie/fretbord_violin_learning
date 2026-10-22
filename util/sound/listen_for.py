@@ -1,7 +1,7 @@
 from collections import Counter, defaultdict
 
 from config import config
-from util.sound.dominant_freq import get_fundamental_frequency
+from util.sound.dominant_freq import get_fundamental_frequency_librosa
 from util.notes.frequency_to_note import frequency_to_note
 
 import numpy as np
@@ -33,7 +33,7 @@ def listen_for_note(stream):
     if volume < MIN_VOLUME:
       continue
 
-    frequency = get_fundamental_frequency(samples, SAMPLE_RATE)
+    frequency = get_fundamental_frequency_librosa(samples, SAMPLE_RATE)
     converted_note = frequency_to_note(frequency)
     if converted_note is None:
       continue
